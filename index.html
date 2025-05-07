@@ -9,6 +9,8 @@
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
   <link rel="icon" href="images/favicon.ico"
         type="image/x-icon" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
 </head>
 <body>
   <header>
@@ -17,10 +19,10 @@
       <h3>Muhammad Ikhlash</h1>
       <p>Software Engineer</p>
     </div>
-      <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+    <img src="images/favicon.ico" alt="" class="icon-header">
       <nav id="nav">
         <a href="#about">About</a>
-        <a href="#portfolio">Portfolio</a>
+        <a href="#portfolio">Projects</a>
         <a href="#contact">Contact</a>
       </nav>
     </div>
@@ -31,87 +33,34 @@
       <h2>About Me</h2>
       <div class="profile-container">
         <p>Final-year Computer Science student passionate about mobile application development, especially Android. Experienced in mobile application using <strong> Kotlin, Flutter, and Jetpack Compose</strong>. Eager to contribute to high-impact teams and continuously improve engineering skills.</p>
-        <a href="./document/cv.pdf" target="_blank">Download CV</a>
+        <a  href="./document/cv.pdf" target="_blank">
+          <div class="container-icon">
+            <img src="https://www.svgrepo.com/show/510957/download.svg" alt="Download Icon" class="social-icon">
+              <p>Download CV</p>
+          </div>
+        </a> 
       </div>
     </section>
-    <!-- <section id="education" data-aos="fade-right">
-      <h2>Education</h2>
-      <p><strong>IPB University</strong> (2021 - 2025)<br/>
-      Computer Science, GPA: 3.63/4.00</p>
-    </section>
-
-    <section id="skills"  data-aos="fade-left">
-      <h2>Skills</h2>
-      <ul>
-        <li>Languages: Dart, Kotlin, JavaScript, Python, C++, C</li>
-        <li>Frameworks: Flutter, Jetpack Compose</li>
-        <li>Tools: Android Studio, VS Code</li>
-      </ul>
-    </section> -->
-
-    <!-- <section id="experience" data-aos="fade-up">
-      <h2>Experience</h2>
-      <div class="job">
-        <h3>Pusat Perpustakaan dan Literasi Pertanian – Mobile Developer Intern</h3>
-        <p>Oct 2024 - Nov 2024<br/>Developed a mobile application and agricultural portal website to support library activities at the Ministry of Agriculture</p>
-      </div>
-      <div class="job">
-        <h3>Bangkit Academy – Mobile Developer</h3>
-        <p>Feb 2024 - Jun 2024<br/>Completed 480+ hours of training, collaborated on capstone integrating ML and APIs. Top graduate of 2024 Batch 1.</p>
-      </div>
-    </section> -->
 
     <section id="portfolio" data-aos="fade-up">
-      <h2>Portfolio</h2>
+      <h2>Projects</h2>
       <div id="project-container"></div>
-    
-     <!-- <a href="https://github.com/Sapa-C2/sapa-app" target="_blank" rel="noopener noreferrer">
-      <div class="project">
-        <img src="./images/SAPA.png" alt="" width="500px">
-        <h3>SAPA</h3>
-        <p>Sign language learning app with gesture detection, quizzes, and educational material.<br>
-        <strong>Tech:</strong> Android, Jetpack Compose, ML</p>
-      </div>
-     </a>
-    
-      <a href="https://github.com/IKhlash02/Get-Health--" target="_blank" rel="noopener noreferrer">
-        <div class="project">
-          <h3>GetHealth+</h3>
-          <p>Android app for browsing and ordering pharmacy products online.<br>
-          <strong>Tech:</strong> Flutter, PHP, MySQL</p>
-        </div>
-      </a>
-      <a href="https://play.google.com/store/search?q=patroli+karhutla&c=apps" target="_blank" rel="noopener noreferrer">
-        <div class="project">
-          <h3>Aplikasi Patroli Karhutla</h3>
-          <p>Android app for forest and land fire patrol.<br>
-          <strong>Tech:</strong> Android, Machine Learning, Room</p>
-        </div>
-      </a>
-     
-      <a href="#" target="_blank">
-        <div class="project">
-          <h3>Portal Perpustakaan</h3>
-          <p>Developed an agricultural portal mobile application using Flutter.<br>
-          <strong>Tech:</strong> Flutter, Dart, Pocketbase, Open Street Maps</p>
-        </div>
-      </a> -->
+  
     </section>
 
     <section id="contact" data-aos="fade-up">
       <h2>Let's Connect</h2>
       <p>Email: <a href="mailto:muhammadikhlash414@gmail.com">muhammadikhlash414@gmail.com</a></p>
-      <p>Phone: <a href="tel:+6281328173266">+62 813 2817 3266</a></p>
       <div class="social-media">
         <a href="https://github.com/IKhlash02" target="_blank">
-          <div class="icon">
-              <img src="images/github.svg" alt="image github" class="contact-img"> 
+          <div class="container-icon">
+              <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/github.svg" alt="GitHub" class="social-icon">
               <p>GitHub</p>
           </div>
         </a> 
         <a href="https://linkedin.com/in/ikhlash-m78" target="_blank">
-          <div class="icon">
-              <img src="images/linkedin.svg" alt="image github" class="contact-img"> 
+          <div class="container-icon">
+            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/linkedin.svg" alt="LinkedIn" class="social-icon">
               <p>Linkedin</p>
           </div>
         </a> 
