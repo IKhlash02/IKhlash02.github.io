@@ -1,81 +1,117 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Ikhlash - Mobile Developer</title>
-  <link rel="stylesheet" href="styles.css"/>
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
-  <link rel="icon" href="images/favicon.ico"
-        type="image/x-icon" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ikhlash - Mobile Developer</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <div class="name-tag">
+          <h3>Muhammad Ikhlash</h3>
+          <p>Software Engineer</p>
+        </div>
+        <img src="images/favicon.ico" alt="" class="icon-header" />
+        <nav id="nav">
+          <a href="#about">About</a>
+          <a href="#portfolio">Projects</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </div>
+    </header>
 
-</head>
-<body>
-  <header>
-    <div class="container">
-    <div class = "name-tag">
-      <h3>Muhammad Ikhlash</h1>
-      <p>Software Engineer</p>
-    </div>
-    <img src="images/favicon.ico" alt="" class="icon-header">
-      <nav id="nav">
-        <a href="#about">About</a>
-        <a href="#portfolio">Projects</a>
-        <a href="#contact">Contact</a>
-      </nav>
-    </div>
-  </header>
-
-  <main>
-    <section id="about" data-aos="fade-up">
-      <h2>About Me</h2>
-      <div class="profile-container">
-        <p>Final-year Computer Science student passionate about mobile application development, especially Android. Experienced in mobile application using <strong> Kotlin, Flutter, and Jetpack Compose</strong>. Currently looking forward to opportunities for collaboration and professional growth.</p>
-        <a  href="https://drive.google.com/uc?id=1XfpZd0swn3Bq8Aiw-ZqIp9Vnwe1rNp_o" target="_blank">
-          <div class="container-icon">
-            <img src="https://www.svgrepo.com/show/510957/download.svg" alt="Download Icon" class="social-icon">
+    <main>
+      <section id="about" data-aos="fade-up">
+        <h2>About Me</h2>
+        <div class="profile-container">
+          <p>
+            Final-year Computer Science student passionate about mobile
+            application development, especially Android. Experienced in mobile
+            application using
+            <strong> Kotlin, Flutter, and Jetpack Compose</strong>. Currently
+            looking forward to opportunities for collaboration and professional
+            growth.
+          </p>
+          <a
+            href="https://drive.google.com/uc?id=1XfpZd0swn3Bq8Aiw-ZqIp9Vnwe1rNp_o"
+            target="_blank"
+          >
+            <div class="container-icon">
+              <img
+                src="https://www.svgrepo.com/show/510957/download.svg"
+                alt="Download Icon"
+                class="social-icon"
+              />
               <p>Download CV</p>
-          </div>
-        </a> 
-      </div>
-    </section>
+            </div>
+          </a>
+        </div>
+      </section>
 
-    <section id="portfolio" data-aos="fade-up">
-      <h2>Projects</h2>
-      <div id="project-container"></div>
-  
-    </section>
+      <section id="portfolio" data-aos="fade-up">
+        <h2>Projects</h2>
+        <div id="project-container"></div>
+      </section>
 
-    <section id="contact" data-aos="fade-up">
-      <h2>Let's Connect</h2>
-      <p>Email: <a href="mailto:muhammadikhlash414@gmail.com">muhammadikhlash414@gmail.com</a></p>
-      <div class="social-media">
-        <a href="https://github.com/IKhlash02" target="_blank">
-          <div class="container-icon">
-              <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/github.svg" alt="GitHub" class="social-icon">
-              <p>GitHub</p>
+      <section id="contact" class="section fade-in">
+        <h2 class="section-title">Get In Touch</h2>
+        <div class="contact-content">
+          <p class="contact-info">
+            Ready to collaborate on your next project? Let's connect and create
+            something amazing together.
+          </p>
+          <p class="contact-info">
+            Email:
+            <a href="mailto:muhammadikhlash414@gmail.com" class="contact-email"
+              >muhammadikhlash414@gmail.com</a
+            >
+          </p>
+          <div class="social-links">
+            <a
+              href="https://github.com/IKhlash02"
+              target="_blank"
+              class="social-link"
+            >
+              <img
+                src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/github.svg"
+                alt="GitHub"
+                class="social-icon"
+              />
+              GitHub
+            </a>
+            <a
+              href="https://linkedin.com/in/ikhlash-m78"
+              target="_blank"
+              class="social-link"
+            >
+              <img
+                src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/linkedin.svg"
+                alt="LinkedIn"
+                class="social-icon"
+              />
+              LinkedIn
+            </a>
           </div>
-        </a> 
-        <a href="https://linkedin.com/in/ikhlash-m78" target="_blank">
-          <div class="container-icon">
-            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/linkedin.svg" alt="LinkedIn" class="social-icon">
-              <p>Linkedin</p>
-          </div>
-        </a> 
-      </div>
-    </section>
-  </main>
+        </div>
+      </section>
+    </main>
 
-  <footer>
-    <p>&copy; 2025 Muhammad Ikhlash</p>
-  </footer>
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script>
-    AOS.init({ duration: 1000, once: true });
-  </script>
-  <script src="project.js"></script>
-  <script src="script.js"></script>
-</body>
+    <footer>
+      <p>&copy; 2025 Muhammad Ikhlash</p>
+    </footer>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init({ duration: 1000, once: true });
+    </script>
+    <script src="project.js"></script>
+    <script src="script.js"></script>
+  </body>
 </html>
