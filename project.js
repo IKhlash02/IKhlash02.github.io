@@ -39,4 +39,14 @@ const projects = [
     playstore: "",
     drive: "",
   },
+  {
+    title: "Testmata",
+    description:
+      "Built a diagnostic app to assist users in identifying early signs of keratitis.",
+    techUsed: ["Android", "Kotlin", "ML Kit"],
+    imageUrl: "./images/testmata.webp",
+    github: "",
+    playstore: "",
+    drive: "",
+  },
 ];

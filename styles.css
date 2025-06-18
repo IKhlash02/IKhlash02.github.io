@@ -242,27 +242,67 @@ nav {
 }
 
 /* Skills Section */
-/* No special container style needed anymore, it uses the global .container */
-.skills-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 1.5rem;
-  justify-content: center;
+
+/* Container utama untuk scroller */
+.skills-scroller {
+  width: 100%;
+  overflow: hidden;
+
+  padding: 2rem 0;
+
+  -webkit-mask: linear-gradient(
+    90deg,
+    transparent,
+    white 20%,
+    white 80%,
+    transparent
+  );
+  mask: linear-gradient(90deg, transparent, white 20%, white 80%, transparent);
 }
+
+.skills-track {
+  display: flex; /* Membuat semua item berjajar horizontal */
+  gap: 1.5rem; /* Jarak antar kartu */
+  width: max-content; /* Lebar total berdasarkan kontennya, agar tidak wrap */
+
+  animation: scroll 40s linear infinite;
+}
+
+.skills-scroller:hover .skills-track {
+  animation-play-state: paused;
+}
+
+@keyframes scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    /* Geser ke kiri sejauh setengah dari total lebar track */
+    /* Karena kita duplikasi konten, -50% akan kembali ke posisi awal tanpa jeda */
+    transform: translateX(-50%);
+  }
+}
+
+/* --- Styling untuk Kartu Skill (tetap sama seperti milik Anda) --- */
 .skill-card {
   background-color: var(--bg-secondary);
   border: 1px solid var(--border-color);
   border-radius: 12px;
   padding: 1.5rem;
   text-align: center;
-  width: 100%;
+  width: 150px; /* Beri lebar tetap agar konsisten */
+  flex-shrink: 0; /* Mencegah kartu menyusut */
   transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
+
 .skill-card:hover {
-  transform: translateY(-10px);
-  border-color: var(--accent-color); /* Ubah border saat hover */
-  box-shadow: 0 0 20px rgba(88, 166, 255, 0.15); /* Efek glow */
+  transform: translateY(
+    -10px
+  ); /* Efek hover tetap berfungsi saat animasi dijeda */
+  border-color: var(--accent-color);
+  box-shadow: 0 0 20px rgba(88, 166, 255, 0.15);
 }
+
 .skill-card img {
   width: 50px;
   height: 50px;
@@ -270,9 +310,11 @@ nav {
   filter: grayscale(1) brightness(1.5);
   transition: filter 0.3s ease;
 }
+
 .skill-card:hover img {
   filter: none;
 }
+
 .skill-card p {
   font-weight: 600;
   color: var(--text-primary);
@@ -316,12 +358,12 @@ nav {
 }
 .card-content p {
   color: var(--text-secondary);
-  flex-grow: 1;
   margin-bottom: 1rem;
 }
 .tech-tags {
   display: flex;
   flex-wrap: wrap;
+
   gap: 0.5rem;
   margin-bottom: 1.5rem;
 }
