@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Ikhlash - Mobile Developer</title>
+    <title>Ikhlash - Software Engineer</title>
     <link rel="stylesheet" href="styles.css" />
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
     <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
@@ -15,101 +15,194 @@
   <body>
     <header>
       <div class="container">
-        <div class="name-tag">
-          <h3>Muhammad Ikhlash</h3>
-          <p>Software Engineer</p>
-        </div>
-        <img src="images/favicon.ico" alt="" class="icon-header" />
+        <a href="#" class="logo-link">
+          <img src="images/favicon.ico" alt="Logo" class="logo-icon" />
+          <div class="name-tag">
+            <h3>Muhammad Ikhlash</h3>
+            <p>Software Engineer</p>
+          </div>
+        </a>
         <nav id="nav">
-          <a href="#about">About</a>
-          <a href="#portfolio">Projects</a>
-          <a href="#contact">Contact</a>
+          <a href="#about" class="nav-link">About</a>
+          <a href="#skills" class="nav-link">Skills</a>
+          <a href="#portfolio" class="nav-link">Projects</a>
+          <a href="#contact" class="nav-link">Contact</a>
         </nav>
+        <button id="menu-toggle" aria-label="Open Menu">
+          <i class="fas fa-bars"></i>
+        </button>
       </div>
     </header>
 
     <main>
-      <section id="about" data-aos="fade-up">
-        <h2>About Me</h2>
-        <div class="profile-container">
-          <p>
-            Final-year Computer Science student passionate about mobile
-            application development, especially Android. Experienced in mobile
-            application using
-            <strong> Kotlin, Flutter, and Jetpack Compose</strong>. Currently
-            looking forward to opportunities for collaboration and professional
-            growth.
+      <!-- Hero Section -->
+      <section id="hero">
+        <div class="hero-content">
+          <h1 data-aos="fade-down">Muhammad Ikhlash</h1>
+          <p class="subtitle" data-aos="fade-down" data-aos-delay="200">
+            Mobile Application Developer
+          </p>
+          <p class="hero-description" data-aos="fade-up" data-aos-delay="400">
+            I build high-quality, scalable, and intuitive applications that
+            solve real-world problems.
           </p>
           <a
-            href="https://drive.google.com/uc?id=1XfpZd0swn3Bq8Aiw-ZqIp9Vnwe1rNp_o"
-            target="_blank"
+            href="#portfolio"
+            class="cta-button"
+            data-aos="fade-up"
+            data-aos-delay="600"
           >
-            <div class="container-icon">
-              <img
-                src="https://www.svgrepo.com/show/510957/download.svg"
-                alt="Download Icon"
-                class="social-icon"
-              />
-              <p>Download CV</p>
-            </div>
+            View My Work
           </a>
         </div>
       </section>
 
-      <section id="portfolio" data-aos="fade-up">
-        <h2>Projects</h2>
-        <div id="project-container"></div>
+      <!-- About Section -->
+      <section id="about" data-aos="fade-up">
+        <div class="container">
+          <h2>About Me</h2>
+          <div class="about-container">
+            <div class="about-text">
+              <p>
+                Computer Science graduate candidate with a deep passion for
+                crafting elegant mobile solutions. My expertise lies in building
+                robust applications using
+                <strong>Kotlin, Flutter, and Jetpack Compose</strong>. I am
+                driven by a desire to learn continuously and am actively seeking
+                opportunities for collaboration and professional growth in a
+                challenging environment.
+              </p>
+              <a
+                href="https://drive.google.com/uc?id=1XfpZd0swn3Bq8Aiw-ZqIp9Vnwe1rNp_o"
+                target="_blank"
+                class="cv-button"
+              >
+                <i class="fas fa-download"></i>
+                Download CV
+              </a>
+            </div>
+          </div>
+        </div>
       </section>
 
-      <section id="contact" class="section fade-in">
-        <h2 class="section-title">Get In Touch</h2>
-        <div class="contact-content">
-          <p class="contact-info">
-            Ready to collaborate on your next project? Let's connect and create
-            something amazing together.
-          </p>
-          <p class="contact-info">
-            Email:
-            <a href="mailto:muhammadikhlash414@gmail.com" class="contact-email"
-              >muhammadikhlash414@gmail.com</a
-            >
-          </p>
-          <div class="social-links">
-            <a
-              href="https://github.com/IKhlash02"
-              target="_blank"
-              class="social-link"
-            >
+      <!-- Skills Section -->
+      <section id="skills" data-aos="fade-up">
+        <div class="container">
+          <h2>My Tech Stack</h2>
+          <div class="skills-grid">
+            <!-- Skill cards remain the same -->
+            <div class="skill-card" data-aos="fade-up" data-aos-delay="100">
               <img
-                src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/github.svg"
-                alt="GitHub"
-                class="social-icon"
+                src="https://cdn.simpleicons.org/kotlin/4285F4"
+                alt="Kotlin"
               />
-              GitHub
-            </a>
-            <a
-              href="https://linkedin.com/in/ikhlash-m78"
-              target="_blank"
-              class="social-link"
-            >
+              <p>Kotlin</p>
+            </div>
+            <div class="skill-card" data-aos="fade-up" data-aos-delay="200">
               <img
-                src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/linkedin.svg"
-                alt="LinkedIn"
-                class="social-icon"
+                src="https://cdn.simpleicons.org/jetpackcompose/4285F4"
+                alt="Jetpack Compose"
               />
-              LinkedIn
+              <p>Jetpack Compose</p>
+            </div>
+            <div class="skill-card" data-aos="fade-up" data-aos-delay="300">
+              <img
+                src="https://cdn.simpleicons.org/android/4285F4"
+                alt="Android SDK"
+              />
+              <p>Android SDK</p>
+            </div>
+            <div class="skill-card" data-aos="fade-up" data-aos-delay="400">
+              <img
+                src="https://cdn.simpleicons.org/flutter/4285F4"
+                alt="Flutter"
+              />
+              <p>Flutter</p>
+            </div>
+            <div class="skill-card" data-aos="fade-up" data-aos-delay="500">
+              <img src="https://cdn.simpleicons.org/dart/4285F4" alt="Dart" />
+              <p>Dart</p>
+            </div>
+
+            <div class="skill-card" data-aos="fade-up" data-aos-delay="600">
+              <img src="https://cdn.simpleicons.org/git/4285F4" alt="Git" />
+              <p>Git</p>
+            </div>
+            <div class="skill-card" data-aos="fade-up" data-aos-delay="700">
+              <img
+                src="https://cdn.simpleicons.org/javascript/4285F4"
+                alt="JavaScript"
+              />
+              <p>JavaScript</p>
+            </div>
+            <div class="skill-card" data-aos="fade-up" data-aos-delay="800">
+              <img src="https://cdn.simpleicons.org/html5/4285F4" alt="Html" />
+              <p>HTML</p>
+            </div>
+            <div class="skill-card" data-aos="fade-up" data-aos-delay="900">
+              <img src="https://cdn.simpleicons.org/css/4285F4" alt="CSS" />
+              <p>CSS</p>
+            </div>
+            <div class="skill-card" data-aos="fade-up" data-aos-delay="1000">
+              <img
+                src="https://cdn.simpleicons.org/python/4285F4"
+                alt="Python"
+              />
+              <p>Python</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Portfolio Section -->
+      <section id="portfolio" data-aos="fade-up">
+        <div class="container">
+          <h2>Featured Projects</h2>
+          <div id="project-container"></div>
+        </div>
+      </section>
+
+      <!-- Contact Section -->
+      <section id="contact" data-aos="fade-up">
+        <div class="container">
+          <h2>Get In Touch</h2>
+          <div class="contact-content">
+            <p class="contact-info">
+              I'm currently available for freelance work and open to new
+              opportunities. Have a project in mind? Let's talk.
+            </p>
+            <a href="mailto:muhammadikhlash414@gmail.com" class="contact-email">
+              muhammadikhlash414@gmail.com
             </a>
+            <div class="social-links">
+              <a
+                href="https://github.com/IKhlash02"
+                target="_blank"
+                class="social-link"
+              >
+                <i class="fab fa-github"></i> GitHub
+              </a>
+              <a
+                href="https://linkedin.com/in/ikhlash-m78"
+                target="_blank"
+                class="social-link"
+              >
+                <i class="fab fa-linkedin"></i> LinkedIn
+              </a>
+            </div>
           </div>
         </div>
       </section>
     </main>
 
     <footer>
-      <p>&copy; 2025 Muhammad Ikhlash</p>
+      <p>© 2025 Muhammad Ikhlash. All Rights Reserved.</p>
     </footer>
+
+    <!-- Scripts remain the same -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-      AOS.init({ duration: 1000, once: true });
+      AOS.init({ duration: 800, once: true, offset: 50 });
     </script>
     <script src="project.js"></script>
     <script src="script.js"></script>

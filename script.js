@@ -1,127 +1,124 @@
-// Highlight nav link saat section aktif
-window.addEventListener("scroll", () => {
-  const sections = document.querySelectorAll("section");
-  const navLinks = document.querySelectorAll("nav a");
+document.addEventListener("DOMContentLoaded", function () {
+  // --- AOS Initialization ---
+  AOS.init({ duration: 800, once: true, offset: 50 });
 
-  let current = "none";
-  sections.forEach((section) => {
-    const sectionTop = section.offsetTop - 50;
-    if (scrollY >= sectionTop) {
-      current = section.getAttribute("id");
-    }
+  // --- Mobile Menu Toggle ---
+  const menuToggle = document.getElementById("menu-toggle");
+  const nav = document.getElementById("nav");
+  const navLinks = document.querySelectorAll(".nav-link");
+
+  menuToggle.addEventListener("click", () => {
+    nav.classList.toggle("active");
+    // Toggle hamburger icon
+    const icon = menuToggle.querySelector("i");
+    icon.classList.toggle("fa-bars");
+    icon.classList.toggle("fa-times");
   });
 
+  // Close menu when a link is clicked
   navLinks.forEach((link) => {
-    link.classList.remove("active");
-    if (link.getAttribute("href").includes(current)) {
-      link.classList.add("active");
-    }
+    link.addEventListener("click", () => {
+      if (nav.classList.contains("active")) {
+        nav.classList.remove("active");
+        menuToggle.querySelector("i").classList.remove("fa-times");
+        menuToggle.querySelector("i").classList.add("fa-bars");
+      }
+    });
   });
-});
 
-function toggleMenu() {
-  var x = document.getElementById("nav");
-  if (x.style.display == "") {
-    x.style.display = "none";
-  } else {
-    x.style.display = "";
-  }
-}
+  // --- Active Nav Link Highlighting on Scroll ---
+  const sections = document.querySelectorAll("main section");
 
-const projectContainer = document.getElementById("project-container");
+  function updateActiveNav() {
+    let currentSectionId = "";
+    sections.forEach((section) => {
+      const sectionTop = section.offsetTop;
+      if (window.scrollY >= sectionTop - 150) {
+        // Adjusted offset
+        currentSectionId = section.getAttribute("id");
+      }
+    });
 
-projects.forEach((project) => {
-  const cardItem = document.createElement("div");
-  cardItem.classList.add("card-item");
-
-  const img = document.createElement("img");
-  img.src = project.imageUrl;
-  img.alt = "project";
-  img.classList.add("project-img");
-
-  const title = document.createElement("h4");
-  title.textContent = project.title;
-
-  const description = document.createElement("p");
-  description.textContent = project.description;
-
-  // const techUse = document.createElement("p");
-  // const strong = document.createElement("strong");
-
-  // strong.textContent = "Tech: ";
-
-  // techUse.appendChild(strong);
-  // techUse.append(project.techUsed.join(", "));
-
-  const linkContainer = document.createElement("div");
-  linkContainer.classList.add("project-links");
-
-  if (project.github) {
-    const githubLink = document.createElement("a");
-    githubLink.href = project.github;
-    githubLink.target = "_blank";
-
-    const containerIcon = document.createElement("div");
-    containerIcon.classList.add("container-icon");
-
-    const githubIcon = document.createElement("img");
-    githubIcon.src =
-      "https://cdn.jsdelivr.net/npm/simple-icons/icons/github.svg";
-    githubIcon.alt = "GitHub";
-    githubIcon.classList.add("social-icon");
-
-    const text = document.createElement("p");
-    text.textContent = "Source Code";
-
-    containerIcon.appendChild(githubIcon);
-    containerIcon.appendChild(text);
-    githubLink.appendChild(containerIcon);
-    linkContainer.appendChild(githubLink);
+    navLinks.forEach((link) => {
+      link.classList.remove("active");
+      if (link.getAttribute("href") === `#${currentSectionId}`) {
+        link.classList.add("active");
+      }
+    });
   }
 
-  if (project.playstore) {
-    const playstoreLink = document.createElement("a");
-    playstoreLink.href = project.playstore;
-    playstoreLink.target = "_blank";
+  window.addEventListener("scroll", updateActiveNav);
+  window.addEventListener("load", updateActiveNav); // Set active link on page load
 
-    const containerIcon = document.createElement("div");
-    containerIcon.classList.add("container-icon");
+  // --- Dynamically Create Project Cards ---
+  const projectContainer = document.getElementById("project-container");
 
-    const playstoreIcon = document.createElement("img");
-    playstoreIcon.src =
-      "https://cdn.jsdelivr.net/npm/simple-icons/icons/googleplay.svg";
-    playstoreIcon.alt = "Play Store";
-    playstoreIcon.classList.add("social-icon");
+  projects.forEach((project, index) => {
+    const cardItem = document.createElement("div");
+    cardItem.classList.add("card-item");
+    cardItem.setAttribute("data-aos", "fade-up");
+    cardItem.setAttribute("data-aos-delay", (index % 2) * 100); // Stagger animation
 
-    const text = document.createElement("p");
-    text.textContent = "Play Store";
+    // Image
+    const img = document.createElement("img");
+    img.src = project.imageUrl;
+    img.alt = project.title;
+    img.classList.add("project-img");
 
-    containerIcon.appendChild(playstoreIcon);
-    containerIcon.appendChild(text);
-    playstoreLink.appendChild(containerIcon);
-    linkContainer.appendChild(playstoreLink);
-  }
+    // Card Content Wrapper
+    const cardContent = document.createElement("div");
+    cardContent.classList.add("card-content");
 
-  if (project.drive) {
-    const driveLink = document.createElement("a");
-    driveLink.href = project.drive;
-    driveLink.target = "_blank";
+    // Title
+    const title = document.createElement("h4");
+    title.textContent = project.title;
 
-    const driveIcon = document.createElement("img");
-    driveIcon.src =
-      "https://cdn.jsdelivr.net/npm/simple-icons/icons/googledrive.svg";
-    driveIcon.alt = "Drive";
-    driveIcon.classList.add("social-icon");
+    // Description
+    const description = document.createElement("p");
+    description.textContent = project.description;
 
-    driveLink.appendChild(driveIcon);
-    linkContainer.appendChild(driveLink);
-  }
+    // Tech Tags
+    const techTags = document.createElement("div");
+    techTags.classList.add("tech-tags");
+    project.techUsed.forEach((tech) => {
+      const tag = document.createElement("span");
+      tag.classList.add("tech-tag");
+      tag.textContent = tech;
+      techTags.appendChild(tag);
+    });
 
-  cardItem.appendChild(img);
-  cardItem.appendChild(title);
-  cardItem.appendChild(description);
-  // cardItem.appendChild(techUse);
-  cardItem.appendChild(linkContainer);
+    // Links
+    const linkContainer = document.createElement("div");
+    linkContainer.classList.add("project-links");
 
-  projectContainer.appendChild(cardItem);
+    if (project.github) {
+      linkContainer.innerHTML += `
+        <a href="${project.github}" target="_blank">
+          <i class="fab fa-github"></i> Source Code
+        </a>`;
+    }
+    if (project.playstore) {
+      linkContainer.innerHTML += `
+        <a href="${project.playstore}" target="_blank">
+          <i class="fab fa-google-play"></i> Play Store
+        </a>`;
+    }
+    if (project.drive) {
+      linkContainer.innerHTML += `
+        <a href="${project.drive}" target="_blank">
+          <i class="fab fa-google-drive"></i> Details
+        </a>`;
+    }
+
+    // Append everything
+    cardContent.appendChild(title);
+    cardContent.appendChild(description);
+    cardContent.appendChild(techTags);
+    cardContent.appendChild(linkContainer);
+
+    cardItem.appendChild(img);
+    cardItem.appendChild(cardContent);
+
+    projectContainer.appendChild(cardItem);
+  });
 });
