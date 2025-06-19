@@ -26,8 +26,8 @@ body {
 }
 
 html {
+  height: 100%;
   scroll-behavior: smooth;
-  scroll-padding-top: 80px;
 }
 
 body {
@@ -36,6 +36,10 @@ body {
   font-family: "Plus Jakarta Sans", sans-serif;
   line-height: 1.7;
   font-size: 16px;
+}
+
+body::-webkit-scrollbar {
+  display: none;
 }
 
 .container {
@@ -176,12 +180,15 @@ nav.active {
 
 /* Hero Section (Mobile First) */
 #hero {
+  position: relative; /* Penting agar elemen child dengan position:absolute bisa diatur relatif terhadap hero */
+  overflow: hidden; /* Mencegah partikel "bocor" keluar dari section hero */
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
   min-height: calc(100vh - 80px);
   padding: 2rem;
+  /* Background gradient bisa Anda simpan atau hapus, efek partikel akan menimpanya */
   background: linear-gradient(-45deg, #0d1117, #1f283a, #0d1117, #182640);
   background-size: 400% 400%;
   animation: gradientBG 15s ease infinite;
@@ -197,6 +204,22 @@ nav.active {
   100% {
     background-position: 0% 50%;
   }
+}
+
+#hero-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1; /* Posisikan kanvas di lapisan bawah */
+}
+
+/* --- Modifikasi .hero-content --- */
+.hero-content {
+  position: relative; /* Agar tidak tertimpa kanvas */
+  z-index: 2; /* Posisikan konten di lapisan atas, DI ATAS KANVAS */
+  /* Properti lainnya tetap sama */
 }
 
 .hero-content h1 {
