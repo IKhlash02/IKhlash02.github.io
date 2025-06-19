@@ -13,16 +13,21 @@
   --card-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
 }
 
-/* Global Styles */
+/* Global Styles (Mostly Unchanged) */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+html,
+body {
+  overflow-x: hidden;
+}
+
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 80px; /* Header height */
+  scroll-padding-top: 80px;
 }
 
 body {
@@ -33,13 +38,12 @@ body {
   font-size: 16px;
 }
 
-/* THE KEY FIX: Centralized Container for spacing */
 .container {
   max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
-  padding-left: 1.5rem; /* Padding for left side */
-  padding-right: 1.5rem; /* Padding for right side */
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
 }
 
 a {
@@ -52,12 +56,12 @@ a:hover {
 }
 
 section {
-  padding-top: 5rem;
-  padding-bottom: 5rem;
+  padding-top: 4rem; /* Slightly reduced padding for mobile */
+  padding-bottom: 4rem;
 }
 
 section h2 {
-  font-size: 2.5rem;
+  font-size: 2rem; /* Mobile-first font size */
   font-weight: 800;
   text-align: center;
   margin-bottom: 3rem;
@@ -76,7 +80,7 @@ section h2::after {
   border-radius: 2px;
 }
 
-/* Header */
+/* Header (Mobile First) */
 header {
   background-color: rgba(13, 17, 23, 0.8);
   backdrop-filter: blur(10px);
@@ -85,7 +89,6 @@ header {
   top: 0;
   width: 100%;
   z-index: 1000;
-  transition: background-color 0.3s ease;
 }
 
 header .container {
@@ -95,7 +98,6 @@ header .container {
   height: 80px;
 }
 
-/* Other header styles (logo, nav, etc.) remain the same */
 .logo-link {
   display: flex;
   align-items: center;
@@ -113,11 +115,31 @@ header .container {
   font-size: 0.8rem;
   color: var(--text-secondary);
 }
+.name-tag {
+  display: none; /* Hide name tag on mobile by default */
+}
+
+/* Mobile Navigation is now the default */
 nav {
+  position: fixed;
+  top: 80px;
+  left: 0;
+  width: 100%;
+  height: calc(100vh - 80px);
+  background: var(--bg-color);
   display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   gap: 2rem;
+  transform: translateX(100%);
+  transition: transform 0.3s ease-in-out;
+}
+nav.active {
+  transform: translateX(0);
 }
 .nav-link {
+  font-size: 1.5rem; /* Larger font for mobile overlay menu */
   color: var(--text-secondary);
   font-weight: 600;
   padding: 0.5rem 0;
@@ -143,23 +165,23 @@ nav {
   width: 100%;
 }
 #menu-toggle {
-  display: none;
+  display: block; /* Hamburger menu is visible by default */
   background: none;
   border: none;
   color: #fff;
   font-size: 1.5rem;
   cursor: pointer;
+  z-index: 1001; /* Ensure it's above other elements */
 }
 
-/* Hero Section */
+/* Hero Section (Mobile First) */
 #hero {
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
   min-height: calc(100vh - 80px);
-  /* The hero section background is full-width, so it doesn't use the .container */
-  padding: 2rem; /* Add padding for small screens here */
+  padding: 2rem;
   background: linear-gradient(-45deg, #0d1117, #1f283a, #0d1117, #182640);
   background-size: 400% 400%;
   animation: gradientBG 15s ease infinite;
@@ -178,13 +200,13 @@ nav {
 }
 
 .hero-content h1 {
-  font-size: 4rem;
+  font-size: 2.5rem; /* Mobile-first font size */
   font-weight: 800;
   color: #fff;
   margin-bottom: 0.5rem;
 }
 .hero-content .subtitle {
-  font-size: 1.5rem;
+  font-size: 1.2rem; /* Mobile-first font size */
   color: var(--accent-color);
   font-weight: 600;
   margin-bottom: 1.5rem;
@@ -213,7 +235,7 @@ nav {
   box-shadow: 0 10px 20px rgba(88, 166, 255, 0.2);
 }
 
-/* About Section */
+/* About Section (No major changes needed, it's already responsive) */
 .about-container {
   max-width: 800px;
   margin: 0 auto;
@@ -241,15 +263,11 @@ nav {
   transform: translateY(-3px);
 }
 
-/* Skills Section */
-
-/* Container utama untuk scroller */
+/* Skills Section (This pattern is inherently responsive, no changes needed) */
 .skills-scroller {
   width: 100%;
   overflow: hidden;
-
   padding: 2rem 0;
-
   -webkit-mask: linear-gradient(
     90deg,
     transparent,
@@ -259,50 +277,38 @@ nav {
   );
   mask: linear-gradient(90deg, transparent, white 20%, white 80%, transparent);
 }
-
 .skills-track {
-  display: flex; /* Membuat semua item berjajar horizontal */
-  gap: 1.5rem; /* Jarak antar kartu */
-  width: max-content; /* Lebar total berdasarkan kontennya, agar tidak wrap */
-
+  display: flex;
+  gap: 1.5rem;
+  width: max-content;
   animation: scroll 40s linear infinite;
 }
-
 .skills-scroller:hover .skills-track {
   animation-play-state: paused;
 }
-
 @keyframes scroll {
   from {
     transform: translateX(0);
   }
   to {
-    /* Geser ke kiri sejauh setengah dari total lebar track */
-    /* Karena kita duplikasi konten, -50% akan kembali ke posisi awal tanpa jeda */
     transform: translateX(-50%);
   }
 }
-
-/* --- Styling untuk Kartu Skill (tetap sama seperti milik Anda) --- */
 .skill-card {
   background-color: var(--bg-secondary);
   border: 1px solid var(--border-color);
   border-radius: 12px;
   padding: 1.5rem;
   text-align: center;
-  width: 150px; /* Beri lebar tetap agar konsisten */
-  flex-shrink: 0; /* Mencegah kartu menyusut */
+  width: 150px;
+  flex-shrink: 0;
   transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
-
 .skill-card:hover {
-  transform: translateY(
-    -10px
-  ); /* Efek hover tetap berfungsi saat animasi dijeda */
+  transform: translateY(-10px);
   border-color: var(--accent-color);
   box-shadow: 0 0 20px rgba(88, 166, 255, 0.15);
 }
-
 .skill-card img {
   width: 50px;
   height: 50px;
@@ -310,20 +316,20 @@ nav {
   filter: grayscale(1) brightness(1.5);
   transition: filter 0.3s ease;
 }
-
 .skill-card:hover img {
   filter: none;
 }
-
 .skill-card p {
   font-weight: 600;
   color: var(--text-primary);
 }
-/* Portfolio Section */
-/* No special container style needed anymore */
+
+/* Portfolio Section (The auto-fit grid is already mobile-first!) */
 #project-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  /* This single line is responsive by nature. It will be 1 column on small screens
+     and multiple columns on larger screens. No media query needed for layout. */
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 2rem;
 }
 .card-item {
@@ -363,7 +369,6 @@ nav {
 .tech-tags {
   display: flex;
   flex-wrap: wrap;
-
   gap: 0.5rem;
   margin-bottom: 1.5rem;
 }
@@ -401,7 +406,7 @@ nav {
   font-size: 1.1rem;
 }
 
-/* Contact Section */
+/* Contact Section (Already responsive) */
 .contact-content {
   max-width: 700px;
   margin: 0 auto;
@@ -413,13 +418,13 @@ nav {
   margin-bottom: 2rem;
 }
 .contact-email {
-  display: inline-block;
-  font-size: 1.5rem;
+  display: block;
+  font-size: clamp(1.1rem, 5vw, 1.5rem);
   font-weight: 600;
   margin-bottom: 2.5rem;
   position: relative;
-  padding: 0.5rem;
 }
+
 .contact-email::after {
   content: "";
   position: absolute;
@@ -436,12 +441,15 @@ nav {
 }
 .social-links {
   display: flex;
-  justify-content: center;
-  gap: 1.5rem;
+  flex-direction: column; /* Stack links on mobile */
+  align-items: center; /* Center them */
+  gap: 1rem;
 }
 .social-link {
   display: flex;
-  align-items: center;
+  justify-content: center; /* Center content inside link */
+  width: 100%; /* Make links full-width */
+  max-width: 250px; /* But not too wide */
   gap: 0.5rem;
   padding: 0.75rem 1.5rem;
   background: var(--bg-secondary);
@@ -456,55 +464,70 @@ nav {
   color: #000;
 }
 
-/* Footer */
+/* Footer (Already responsive) */
 footer {
   background-color: var(--bg-secondary);
   text-align: center;
-  padding: 2rem 1.5rem; /* Add horizontal padding here too */
+  padding: 2rem 1.5rem;
   font-size: 0.9rem;
   color: var(--text-secondary);
   border-top: 1px solid var(--border-color);
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
+/* ==========================================================================
+   Responsive Design - Tablet & Desktop Styles (min-width: 769px)
+   ========================================================================== */
+
+@media (min-width: 769px) {
+  section {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
+
   section h2 {
-    font-size: 2rem;
+    font-size: 2.5rem; /* Larger font for desktop section titles */
   }
-  .hero-content h1 {
-    font-size: 2.5rem;
-  }
-  .hero-content .subtitle {
-    font-size: 1.2rem;
-  }
+
+  /* --- Header & Nav for Desktop --- */
   .name-tag {
-    display: none;
+    display: block; /* Show name tag on desktop */
   }
-  nav {
-    position: fixed;
-    top: 80px;
-    left: 0;
-    width: 100%;
-    height: calc(100vh - 80px);
-    background: var(--bg-color);
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 2rem;
-    transform: translateX(100%);
-    transition: transform 0.3s ease-in-out;
-  }
-  nav.active {
-    transform: translateX(0);
-  }
-  .nav-link {
-    font-size: 1.5rem;
-  }
+
   #menu-toggle {
-    display: block;
-    z-index: 1001;
+    display: none; /* Hide hamburger on desktop */
   }
-  #project-container {
-    grid-template-columns: 1fr;
+
+  nav {
+    position: static;
+    transform: translateX(0);
+    flex-direction: row;
+    width: auto;
+    height: auto;
+    background: transparent;
+    gap: 2rem;
+  }
+
+  .nav-link {
+    font-size: 1rem; /* Regular font size for desktop nav */
+    padding: 0.5rem 0;
+  }
+
+  /* --- Hero for Desktop --- */
+  .hero-content h1 {
+    font-size: 4rem; /* Larger font for desktop hero title */
+  }
+
+  .hero-content .subtitle {
+    font-size: 1.5rem; /* Larger font for desktop subtitle */
+  }
+
+  /* --- Contact for Desktop --- */
+  .social-links {
+    flex-direction: row; /* Layout links side-by-side */
+    justify-content: center;
+    gap: 1.5rem;
+  }
+  .social-link {
+    width: auto; /* Let content define width */
   }
 }
